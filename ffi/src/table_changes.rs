@@ -22,7 +22,7 @@ use crate::expressions::kernel_visitor::{unwrap_kernel_predicate, KernelExpressi
 use crate::scan::EnginePredicate;
 use crate::{
     catch_unwind_into_extern_result, kernel_string_slice, unwrap_and_parse_path_as_url,
-    AllocateStringFn, ExternEngine, ExternResult, IntoExternResult, KernelStringSlice,
+    AllocateStringFn, ExternEngine, ExternResult, KernelStringSlice,
     NullableCvoid, SharedExternEngine, SharedSchema,
 };
 
