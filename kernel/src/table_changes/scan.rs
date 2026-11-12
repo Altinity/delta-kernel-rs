@@ -197,6 +197,7 @@ impl TableChangesScan {
     /// rows selected by its deletion vectors, so that an engine can read the files with its own
     /// Parquet reader and get the same result as [`TableChangesScan::execute`]. Deletion vectors
     /// are read with the `engine`.
+    #[allow(dead_code)]
     #[internal_api]
     pub(crate) fn scan_files(
         &self,
@@ -257,6 +258,7 @@ impl TableChangesScan {
 
 /// A data file of the change data feed, with everything that an engine needs to read it with its
 /// own Parquet reader. Returned by [`TableChangesScan::scan_files`].
+#[allow(dead_code)]
 #[internal_api]
 #[derive(Debug, Clone)]
 pub(crate) struct CdfReadFile {
@@ -280,11 +282,13 @@ pub(crate) struct CdfReadFile {
 }
 
 /// Per-scan state that is needed to build the [`CdfReadFile`]s.
+#[allow(dead_code)]
 struct CdfReadFileState {
     state_info: Arc<StateInfo>,
 }
 
 impl CdfReadFileState {
+    #[allow(dead_code)]
     fn make_read_file(&self, resolved: ResolvedCdfScanFileRows) -> DeltaResult<CdfReadFile> {
         let ResolvedCdfScanFileRows {
             scan_file,
