@@ -19,8 +19,8 @@ use crate::expressions::SharedExpression;
 use crate::scan::EnginePredicate;
 use crate::{
     catch_unwind_into_extern_result, kernel_string_slice, unwrap_and_parse_path_as_url,
-    AllocateStringFn, ExternEngine, ExternResult, IntoExternResult, KernelStringSlice,
-    NullableCvoid, OptionalValue, SharedExternEngine, SharedSchema,
+    AllocateStringFn, ExternEngine, ExternResult, KernelStringSlice, NullableCvoid,
+    OptionalValue, SharedExternEngine, SharedSchema,
 };
 
 #[handle_descriptor(target=TableChanges, mutable=true, sized=true)]
@@ -620,8 +620,8 @@ mod tests {
 
     pub fn generate_batch_with_id(start_i: i32) -> Result<RecordBatch, ArrowError> {
         generate_batch(vec![
-            ("id", vec![start_i, start_i + 1, start_i + 2].into_array()),
-            ("val", vec!["a", "b", "c"].into_array()),
+            ("id", vec![start_i, start_i + 1, start_i + 2].into_arrow_array()),
+            ("val", vec!["a", "b", "c"].into_arrow_array()),
         ])
     }
 

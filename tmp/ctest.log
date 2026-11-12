@@ -1,0 +1,477 @@
+Test project /root/Documents/delta-kernel-rs/ffi/examples/read-table/build
+    Start 1: read_and_print_all_prim
+1/6 Test #1: read_and_print_all_prim ............***Failed    0.15 sec
+++ mktemp
++ OUT_FILE=/tmp/tmp.SAwZe29Seu
++ COLS=
++ ./read_table ../../../../acceptance/tests/dat/out/reader_tests/generated/all_primitive_types/delta/
++ tee /tmp/tmp.SAwZe29Seu
+Reading table at ../../../../acceptance/tests/dat/out/reader_tests/generated/all_primitive_types/delta/
+version: 0
+
+Schema:
+├─ utf8: string
+├─ int64: long
+├─ int32: integer
+├─ int16: short
+├─ int8: byte
+├─ float32: float
+├─ float64: double
+├─ bool: boolean
+├─ binary: binary
+├─ decimal: decimal(5)(3)
+├─ date32: date
+└─ timestamp: timestamp
+
++ diff -s /tmp/tmp.SAwZe29Seu ../../../tests/read-table-testing/expected-data/all-prim-types.expected
+17a18,101
+> utf8:  [
+>   "0",
+>   "1",
+>   "2",
+>   "3",
+>   "4"
+> ]
+> int64:  [
+>   0,
+>   1,
+>   2,
+>   3,
+>   4
+> ]
+> int32:  [
+>   0,
+>   1,
+>   2,
+>   3,
+>   4
+> ]
+> int16:  [
+>   0,
+>   1,
+>   2,
+>   3,
+>   4
+> ]
+> int8:  [
+>   0,
+>   1,
+>   2,
+>   3,
+>   4
+> ]
+> float32:  [
+>   0,
+>   1,
+>   2,
+>   3,
+>   4
+> ]
+> float64:  [
+>   0,
+>   1,
+>   2,
+>   3,
+>   4
+> ]
+> bool:  [
+>   true,
+>   false,
+>   true,
+>   false,
+>   true
+> ]
+> binary:  [
+>   ,
+>   00,
+>   0000,
+>   000000,
+>   00000000
+> ]
+> decimal:  [
+>   10.000,
+>   11.000,
+>   12.000,
+>   13.000,
+>   14.000
+> ]
+> date32:  [
+>   1970-01-01,
+>   1970-01-02,
+>   1970-01-03,
+>   1970-01-04,
+>   1970-01-05
+> ]
+> timestamp:  [
+>   1970-01-01 00:00:00.000000Z,
+>   1970-01-01 01:00:00.000000Z,
+>   1970-01-01 02:00:00.000000Z,
+>   1970-01-01 03:00:00.000000Z,
+>   1970-01-01 04:00:00.000000Z
+> ]
+
+    Start 2: read_and_print_all_prim_cols
+2/6 Test #2: read_and_print_all_prim_cols .......***Failed    0.04 sec
+++ mktemp
++ OUT_FILE=/tmp/tmp.ppOl2Y6jJ9
++ COLS=-cdecimal,float64
++ ./read_table -cdecimal,float64 ../../../../acceptance/tests/dat/out/reader_tests/generated/all_primitive_types/delta/
++ tee /tmp/tmp.ppOl2Y6jJ9
+Reading table at ../../../../acceptance/tests/dat/out/reader_tests/generated/all_primitive_types/delta/
+version: 0
+
+Schema:
+├─ utf8: string
+├─ int64: long
+├─ int32: integer
+├─ int16: short
+├─ int8: byte
+├─ float32: float
+├─ float64: double
+├─ bool: boolean
+├─ binary: binary
+├─ decimal: decimal(5)(3)
+├─ date32: date
+└─ timestamp: timestamp
+
++ diff -s /tmp/tmp.ppOl2Y6jJ9 ../../../tests/read-table-testing/expected-data/all-prim-types-cols.expected
+17a18,31
+> decimal:  [
+>   10.000,
+>   11.000,
+>   12.000,
+>   13.000,
+>   14.000
+> ]
+> float64:  [
+>   0,
+>   1,
+>   2,
+>   3,
+>   4
+> ]
+
+    Start 3: read_and_print_nested
+3/6 Test #3: read_and_print_nested ..............***Failed    0.09 sec
+++ mktemp
++ OUT_FILE=/tmp/tmp.G6rMP7BtoV
++ COLS=
++ ./read_table ../../../../acceptance/tests/dat/out/reader_tests/generated/nested_types/delta/
++ tee /tmp/tmp.G6rMP7BtoV
+Reading table at ../../../../acceptance/tests/dat/out/reader_tests/generated/nested_types/delta/
+version: 0
+
+Schema:
+├─ pk: integer
+├─ struct: struct
+│  ├─ float64: double
+│  └─ bool: boolean
+├─ array: array (can contain null: true)
+│  └─ array_element: short
+└─ map: map (can contain null: true)
+   ├─ map_key: string
+   └─ map_value: integer
+
++ diff -s /tmp/tmp.G6rMP7BtoV ../../../tests/read-table-testing/expected-data/nested-types.expected
+14a15,115
+> pk:  [
+>   0,
+>   1,
+>   2,
+>   3,
+>   4
+> ]
+> struct:  -- is_valid: all not null
+> -- child 0 type: double
+>   [
+>     0,
+>     1,
+>     2,
+>     3,
+>     4
+>   ]
+> -- child 1 type: bool
+>   [
+>     true,
+>     false,
+>     true,
+>     false,
+>     true
+>   ]
+> array:  [
+>   [
+>     0
+>   ],
+>   [
+>     0,
+>     1
+>   ],
+>   [
+>     0,
+>     1,
+>     2
+>   ],
+>   [
+>     0,
+>     1,
+>     2,
+>     3
+>   ],
+>   [
+>     0,
+>     1,
+>     2,
+>     3,
+>     4
+>   ]
+> ]
+> map:  [
+>   keys:
+>   []
+>   values:
+>   [],
+>   keys:
+>   [
+>     "0"
+>   ]
+>   values:
+>   [
+>     0
+>   ],
+>   keys:
+>   [
+>     "0",
+>     "1"
+>   ]
+>   values:
+>   [
+>     0,
+>     1
+>   ],
+>   keys:
+>   [
+>     "0",
+>     "1",
+>     "2"
+>   ]
+>   values:
+>   [
+>     0,
+>     1,
+>     2
+>   ],
+>   keys:
+>   [
+>     "0",
+>     "1",
+>     "2",
+>     "3"
+>   ]
+>   values:
+>   [
+>     0,
+>     1,
+>     2,
+>     3
+>   ]
+> ]
+
+    Start 4: read_and_print_nested_cols
+4/6 Test #4: read_and_print_nested_cols .........***Failed    0.06 sec
+++ mktemp
++ OUT_FILE=/tmp/tmp.z3GhN89jjR
++ COLS=-cmap,struct,array
++ ./read_table -cmap,struct,array ../../../../acceptance/tests/dat/out/reader_tests/generated/nested_types/delta/
++ tee /tmp/tmp.z3GhN89jjR
+Reading table at ../../../../acceptance/tests/dat/out/reader_tests/generated/nested_types/delta/
+version: 0
+
+Schema:
+├─ pk: integer
+├─ struct: struct
+│  ├─ float64: double
+│  └─ bool: boolean
+├─ array: array (can contain null: true)
+│  └─ array_element: short
+└─ map: map (can contain null: true)
+   ├─ map_key: string
+   └─ map_value: integer
+
++ diff -s /tmp/tmp.z3GhN89jjR ../../../tests/read-table-testing/expected-data/nested-types-cols.expected
+14a15,108
+> map:  [
+>   keys:
+>   []
+>   values:
+>   [],
+>   keys:
+>   [
+>     "0"
+>   ]
+>   values:
+>   [
+>     0
+>   ],
+>   keys:
+>   [
+>     "0",
+>     "1"
+>   ]
+>   values:
+>   [
+>     0,
+>     1
+>   ],
+>   keys:
+>   [
+>     "0",
+>     "1",
+>     "2"
+>   ]
+>   values:
+>   [
+>     0,
+>     1,
+>     2
+>   ],
+>   keys:
+>   [
+>     "0",
+>     "1",
+>     "2",
+>     "3"
+>   ]
+>   values:
+>   [
+>     0,
+>     1,
+>     2,
+>     3
+>   ]
+> ]
+> struct:  -- is_valid: all not null
+> -- child 0 type: double
+>   [
+>     0,
+>     1,
+>     2,
+>     3,
+>     4
+>   ]
+> -- child 1 type: bool
+>   [
+>     true,
+>     false,
+>     true,
+>     false,
+>     true
+>   ]
+> array:  [
+>   [
+>     0
+>   ],
+>   [
+>     0,
+>     1
+>   ],
+>   [
+>     0,
+>     1,
+>     2
+>   ],
+>   [
+>     0,
+>     1,
+>     2,
+>     3
+>   ],
+>   [
+>     0,
+>     1,
+>     2,
+>     3,
+>     4
+>   ]
+> ]
+
+    Start 5: read_and_print_basic_partitioned
+5/6 Test #5: read_and_print_basic_partitioned ...***Failed    0.10 sec
+++ mktemp
++ OUT_FILE=/tmp/tmp.Trqr7N4ap8
++ COLS=
++ ./read_table ../../../../acceptance/tests/dat/out/reader_tests/generated/basic_partitioned/delta/
++ tee /tmp/tmp.Trqr7N4ap8
+Reading table at ../../../../acceptance/tests/dat/out/reader_tests/generated/basic_partitioned/delta/
+version: 1
+
+Schema:
+├─ letter: string
+├─ number: long
+└─ a_float: double
+
++ diff -s /tmp/tmp.Trqr7N4ap8 ../../../tests/read-table-testing/expected-data/basic-partitioned.expected
+8a9,32
+> letter:  [
+>   "a",
+>   "e",
+>   "f",
+>   "a",
+>   "b",
+>   "c"
+> ]
+> number:  [
+>   4,
+>   5,
+>   6,
+>   1,
+>   2,
+>   3
+> ]
+> a_float:  [
+>   4.4,
+>   5.5,
+>   6.6,
+>   1.1,
+>   2.2,
+>   3.3
+> ]
+
+    Start 6: read_and_print_with_dv_small
+6/6 Test #6: read_and_print_with_dv_small .......***Failed    0.04 sec
+++ mktemp
++ OUT_FILE=/tmp/tmp.MUMXXddHR9
++ COLS=
++ ./read_table ../../../../kernel/tests/data/table-with-dv-small/
++ tee /tmp/tmp.MUMXXddHR9
+Reading table at ../../../../kernel/tests/data/table-with-dv-small/
+version: 1
+
+Schema:
+└─ value: integer
+
++ diff -s /tmp/tmp.MUMXXddHR9 ../../../tests/read-table-testing/expected-data/table-with-dv-small.expected
+6a7,16
+> value:  [
+>   1,
+>   2,
+>   3,
+>   4,
+>   5,
+>   6,
+>   7,
+>   8
+> ]
+
+
+0% tests passed, 6 tests failed out of 6
+
+Total Test time (real) =   0.49 sec
+
+The following tests FAILED:
+	  1 - read_and_print_all_prim (Failed)
+	  2 - read_and_print_all_prim_cols (Failed)
+	  3 - read_and_print_nested (Failed)
+	  4 - read_and_print_nested_cols (Failed)
+	  5 - read_and_print_basic_partitioned (Failed)
+	  6 - read_and_print_with_dv_small (Failed)
+Errors while running CTest

@@ -1,0 +1,67 @@
+   Compiling num-traits v0.2.19
+   Compiling serde_core v1.0.228
+   Compiling serde v1.0.228
+    Checking tracing-core v0.1.36
+    Checking regex-syntax v0.8.9
+    Checking crypto-common v0.1.7
+   Compiling delta_kernel v0.19.2 (/root/Documents/delta-kernel-rs/kernel)
+    Checking clap_builder v4.5.57
+    Checking digest v0.10.7
+    Checking md-5 v0.10.6
+   Compiling rustix v1.1.3
+    Checking tracing v0.1.44
+    Checking h2 v0.4.13
+    Checking num-integer v0.1.46
+    Checking half v2.7.1
+    Checking num-complex v0.4.6
+    Checking num-bigint v0.4.6
+    Checking atoi v2.0.0
+    Checking ordered-float v2.10.1
+    Checking clap v4.5.57
+    Checking thrift v0.17.0
+    Checking regex-automata v0.4.14
+    Checking arrow-buffer v57.3.0
+   Compiling xattr v1.6.1
+   Compiling tar v0.4.44
+    Checking serde_json v1.0.149
+    Checking csv v1.4.0
+    Checking arrow-data v57.3.0
+    Checking chrono v0.4.43
+    Checking serde_urlencoded v0.7.1
+    Checking quick-xml v0.38.4
+    Checking dhat v0.3.3
+   Compiling acceptance v0.19.2 (/root/Documents/delta-kernel-rs/acceptance)
+    Checking regex v1.12.3
+    Checking env_filter v0.1.4
+    Checking env_logger v0.11.8
+    Checking chrono-tz v0.10.4
+    Checking hyper v1.8.1
+    Checking hyper-util v0.1.20
+    Checking hyper-rustls v0.27.7
+    Checking reqwest v0.12.28
+    Checking object_store v0.12.5
+    Checking uc-client v0.19.2 (/root/Documents/delta-kernel-rs/uc-client)
+    Checking arrow-array v57.3.0
+    Checking arrow-select v57.3.0
+    Checking arrow-row v57.3.0
+    Checking arrow-arith v57.3.0
+    Checking arrow-ord v57.3.0
+    Checking arrow-ipc v57.3.0
+    Checking arrow-string v57.3.0
+    Checking arrow-cast v57.3.0
+    Checking arrow-csv v57.3.0
+    Checking arrow-json v57.3.0
+    Checking parquet v57.3.0
+    Checking arrow v57.3.0
+    Checking common v0.19.2 (/root/Documents/delta-kernel-rs/kernel/examples/common)
+    Checking feature_tests v0.19.2 (/root/Documents/delta-kernel-rs/feature-tests)
+    Checking mem-test v0.19.2 (/root/Documents/delta-kernel-rs/mem-test)
+    Checking uc-catalog v0.19.2 (/root/Documents/delta-kernel-rs/uc-catalog)
+    Checking test_utils v0.19.2 (/root/Documents/delta-kernel-rs/test-utils)
+    Checking read-table-changes v0.1.0 (/root/Documents/delta-kernel-rs/kernel/examples/read-table-changes)
+    Checking inspect-table v0.1.0 (/root/Documents/delta-kernel-rs/kernel/examples/inspect-table)
+    Checking read-table-single-threaded v0.1.0 (/root/Documents/delta-kernel-rs/kernel/examples/read-table-single-threaded)
+    Checking read-table-multi-threaded v0.1.0 (/root/Documents/delta-kernel-rs/kernel/examples/read-table-multi-threaded)
+    Checking write-table v0.1.0 (/root/Documents/delta-kernel-rs/kernel/examples/write-table)
+    Checking checkpoint-table v0.1.0 (/root/Documents/delta-kernel-rs/kernel/examples/checkpoint-table)
+    Finished `dev` profile [unoptimized + debuginfo] target(s) in 22.29s

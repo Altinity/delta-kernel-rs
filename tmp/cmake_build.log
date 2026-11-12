@@ -1,0 +1,9 @@
+[ 25%] Building C object CMakeFiles/read_table.dir/read_table.c.o
+[ 50%] Building C object CMakeFiles/read_table.dir/arrow.c.o
+[ 75%] Building C object CMakeFiles/read_table.dir/root/Documents/delta-kernel-rs/ffi/examples/common/kernel_utils.c.o
+[100%] Linking C executable read_table
+/usr/bin/ld: cannot find -ldelta_kernel_ffi: No such file or directory
+collect2: error: ld returned 1 exit status
+gmake[2]: *** [CMakeFiles/read_table.dir/build.make:129: read_table] Error 1
+gmake[1]: *** [CMakeFiles/Makefile2:111: CMakeFiles/read_table.dir/all] Error 2
+gmake: *** [Makefile:101: all] Error 2
